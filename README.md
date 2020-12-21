@@ -277,7 +277,7 @@ const CustomChart = (x, y) => {
     host environment
   - Compilation target for languages such as C,C++, rust
 
-### Virtualization for large lists
+## Virtualization for large lists
 
 React does a great job at batching DOM updates and only updating what needs to
 be changed. However, if you need to make HUGE updates to the DOM there isn't
@@ -347,7 +347,7 @@ Separating the state:
 - Separate the contexts (`state` in one context provider, and `dispatch`
   function in another context provider)
 
-### Tools for Measuring Performance
+## Tools for Measuring Performance
 
 - Dev tools Profiler tab
 - Dev tools Performance tab
