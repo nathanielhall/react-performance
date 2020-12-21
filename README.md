@@ -249,19 +249,16 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
     effects, while functions in useMemo are supposed to be pure w/o side effects
 
 ```js
-const PassFailChart = (data, filter) => {
-  const modifiedData = processData(data, filter)
-  return <Chart data={modifiedData} />
+const CustomChart = (x, y) => {
+  const data = processData(x, y)
+  return <Chart data={data} />
 }
 ```
 
 ```jsx
-const PassFailChart = (data, filter) => {
-  const modifiedData = React.useMemo(() => processData(data, filter), [
-    data,
-    filter
-  ])
-  return <Chart data={modifiedData} />
+const CustomChart = (x, y) => {
+  const data = React.useMemo(() => processData(x, y), [x, y])
+  return <Chart data={data} />
 }
 ```
 
