@@ -160,6 +160,8 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
     }
     ```
 
+    Using hooks
+
     ```jsx
     export const Panel = React.memo(({ width, onPanelClose, ...props }) => {
       const chartStyle = useMemo(() => ({ color: 'red', width }), [width])
@@ -179,7 +181,7 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
     })
     ```
 
-    Redux Example
+    Redux Example (breaking reference equality)
 
     ```jsx
     const unfriend = (name) => ({ type: 'UNFRIEND', name })
@@ -203,6 +205,8 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
       mapDispatchToProps
     )(FriendList)
     ```
+
+    Redux Example using memoization
 
     ```jsx
     const mapStateToProps = (state, ownProps) => {
@@ -242,25 +246,26 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
   - [Fix the slow render before you fix the re-render](https://kentcdodds.com/blog/fix-the-slow-render-before-you-fix-the-re-render)
 
 - useMemo
+
   - Calculations performed within render will be performed every render,
     regardless of change. The same goes for functional component.
   - Hook that memorizes the output of a function
   - This is different from useEffect in that useEffect is intended for side
     effects, while functions in useMemo are supposed to be pure w/o side effects
 
-```js
-const CustomChart = (x, y) => {
-  const data = processData(x, y)
-  return <Chart data={data} />
-}
-```
+    ```js
+    const CustomChart = (x, y) => {
+      const data = processData(x, y)
+      return <Chart data={data} />
+    }
+    ```
 
-```jsx
-const CustomChart = (x, y) => {
-  const data = React.useMemo(() => processData(x, y), [x, y])
-  return <Chart data={data} />
-}
-```
+    ```jsx
+    const CustomChart = (x, y) => {
+      const data = React.useMemo(() => processData(x, y), [x, y])
+      return <Chart data={data} />
+    }
+    ```
 
 - [Web Workers](https://kentcdodds.com/blog/speed-up-your-app-with-web-workers)
 
