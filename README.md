@@ -57,8 +57,9 @@ function App() {
 ```
 
 - Tools to help determine need/benefit of code splitting
-  - Dev tools "Coverage" feature
-    <img src="https://developers.google.com/web/tools/chrome-devtools/coverage/images/example.png" width="600">
+
+* Dev tools "Coverage" feature
+  <img src="https://developers.google.com/web/tools/chrome-devtools/coverage/images/example.png" width="600">
 
 * Webpack Bundle Analyzer
   <img src="https://cloud.githubusercontent.com/assets/302213/20628702/93f72404-b338-11e6-92d4-9a365550a701.gif" width="600">
