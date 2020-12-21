@@ -58,12 +58,12 @@ function App() {
 
 - Tools to help determine need/benefit of code splitting
   - Dev tools "Coverage" feature
-    ![example.png](https://developers.google.com/web/tools/chrome-devtools/coverage/images/example.png
-    =600x)
-  - Webpack Bundle Analyzer
-    ![93f72404-b338-11e6-92d4-9a365550a701.gif](https://cloud.githubusercontent.com/assets/302213/20628702/93f72404-b338-11e6-92d4-9a365550a701.gif
-    =600x)
-- Webpack
+    <img src="https://developers.google.com/web/tools/chrome-devtools/coverage/images/example.png" width="600">
+
+* Webpack Bundle Analyzer
+  <img src="https://cloud.githubusercontent.com/assets/302213/20628702/93f72404-b338-11e6-92d4-9a365550a701.gif" width="600">
+
+* Webpack
   [Prefetching/Preloading](https://webpack.js.org/guides/code-splitting/#prefetchingpreloading-modules)
   Modules
   - prefetch: resource is probably needed for some navigation in the future
@@ -286,8 +286,7 @@ much React can do to help.
 List "virtualization" focuses on just rendering items visible to the user. This
 works by maintaining a window and moving that window around your list.
 
-![65490523-a7307980-def0-11e9-9991-a7e0c2a6e30a.gif](https://user-images.githubusercontent.com/2182637/65490523-a7307980-def0-11e9-9991-a7e0c2a6e30a.gif
-=300x)
+<img src="https://user-images.githubusercontent.com/2182637/65490523-a7307980-def0-11e9-9991-a7e0c2a6e30a.gif" width="300">
 
 - Tradeoffs
   - Not searchable with ctrl-F
