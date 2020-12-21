@@ -58,16 +58,20 @@ function App() {
 
 - Tools to help determine need/benefit of code splitting
 
-* Dev tools "Coverage" feature
-  <img src="https://developers.google.com/web/tools/chrome-devtools/coverage/images/example.png" width="600">
-* Webpack Bundle Analyzer
-  <img src="https://cloud.githubusercontent.com/assets/302213/20628702/93f72404-b338-11e6-92d4-9a365550a701.gif" width="600">
-* Webpack
-  [Prefetching/Preloading](https://webpack.js.org/guides/code-splitting/#prefetchingpreloading-modules)
-  Modules
-  - prefetch: resource is probably needed for some navigation in the future
-  - preload: resource will also be needed during the current navigation
-  - [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments)
+  - Dev tools "Coverage" feature
+
+    <img src="https://developers.google.com/web/tools/chrome-devtools/coverage/images/example.png" width="600">
+
+  - Webpack Bundle Analyzer
+
+    <img src="https://cloud.githubusercontent.com/assets/302213/20628702/93f72404-b338-11e6-92d4-9a365550a701.gif" width="600">
+
+  - Webpack
+    [Prefetching/Preloading](https://webpack.js.org/guides/code-splitting/#prefetchingpreloading-modules)
+    Modules
+    - prefetch: resource is probably needed for some navigation in the future
+    - preload: resource will also be needed during the current navigation
+    - [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments)
 
 ```js
 import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
