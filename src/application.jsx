@@ -1,7 +1,6 @@
-import React from 'react'
-import { StateColocation } from './state-colocation'
+// import React from 'react'
 // import { hot } from 'react-hot-loader'
 
-export const Application = StateColocation
+export { Application } from './state-colocation'
 
 // notes

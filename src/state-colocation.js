@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const StateColocation = () => {
+export const Application = () => {
   // this is "global state"
   const [dog, setDog] = React.useState('')
   const [time, setTime] = React.useState(200)
