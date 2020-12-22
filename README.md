@@ -6,16 +6,16 @@
 
 ## Topics
 
-- Code Splitting
-- Unnecessary Renders
-- Expensive Calculations / Slow Renders
-- Virtualization for Long Lists
-- State Management effect on Performance
-  - Fix "perf death by a thousand cuts"
-  - Optimize Context/Redux
-- Tools for Measuring Performance
-- Definitions
-- Resources
+- [Code splitting](#code-splitting)
+- [Avoiding unnecessary renders](#avoiding-unnecessary-renders)
+- [Slow renders](#slow-renders)
+- [Long lists](#long-lists)
+- [Fixing death by a thousand cuts](#fixing-death-by-a-thousand-cuts)
+- [Optimizing Redux](#optimizing-redux)
+- [Optimizing Context](#optimizing-context)
+- [Tools for Measuring Performance](#tools-for-measuring-performance)
+- [Definitions](#definitions)
+- [Resources](#resources)
 
 ## Overview
 
@@ -81,23 +81,29 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
 <link rel="prefetch" href="login-modal-chunk.js">
 ```
 
-## Unecessary Renders
+## Avoiding Unnecessary Renders
 
-- Most of the time re-renders are fine and do not cause performance issues
-- When a performance issue exists, much of the time it's related to unecessary
-  renders
+- Very often, problems are related to unnecessary rendering
+- React does not control renders by default
+
 - Areas where re-renders could matter
 
   - Rendering charts
   - Parent components that control many children
 
-- Ways to avoid unnecessary renders
+- How to determine unnecessary renders
+
+  - [React Profiler](https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html)
+  - Highlight updates
+
+- How to control renders
 
   - Pure Component
 
     - when prop are not changing fequently
     - when component isn't very complex
-    - Example
+
+    Example
 
     ```jsx
     export class ClassComponent extends React.PureComponent {
@@ -114,8 +120,8 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
     - example that breaks reference equality
 
     ```jsx
-    export const Panel = ({ width, onPanelClose, ...props }) => {
-      ;<CustomChart
+    export const Panel = ({ width, onPanelClose, ...props }) => (
+      <CustomChart
         title="something"
         chartStyle={{ color: 'red', width }}
         onClose={() => {
@@ -123,7 +129,7 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
           onPanelClose()
         }}
       />
-    }
+    )
     ```
 
     A classical solution?
@@ -239,11 +245,9 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
   )
   ```
 
-## Expensive Calculations
+## Slow Renders
 
-- Slow Renders
-
-  - [Fix the slow render before you fix the re-render](https://kentcdodds.com/blog/fix-the-slow-render-before-you-fix-the-re-render)
+[Fix the slow render before you fix the re-render](https://kentcdodds.com/blog/fix-the-slow-render-before-you-fix-the-re-render)
 
 - useMemo
 
@@ -282,7 +286,7 @@ import(/* webpackPrefetch: true */ './path/to/LoginModal.js')
     host environment
   - Compilation target for languages such as C,C++, rust
 
-## Virtualization for large lists
+## Long Lists
 
 React does a great job at batching DOM updates and only updating what needs to
 be changed. However, if you need to make HUGE updates to the DOM there isn't
@@ -299,9 +303,7 @@ works by maintaining a window and moving that window around your list.
   - heavy lists can sometimes show flashing or artifacts if rendering can't keep
     up
 
-## State Management effect on Performance
-
-### Death by a thousand cuts
+## Fixing death by a thousand cuts
 
 Death by a thousand cuts means so many components are updated when state changes
 that it becomes a performance bottleneck.
@@ -339,14 +341,14 @@ Separating the state:
 - See example here..
   [GitHub - stevekinney/grudges-react-state at exercise-grant-forgiveness](https://github.com/stevekinney/grudges-react-state/tree/exercise-grant-forgiveness)
 
-### Redux Performance tips
+## Optimizing Redux
 
 - deep cloning state
   [Performance \| Redux](https://redux.js.org/faq/performance#do-i-have-to-deep-clone-my-state-in-a-reducer-isnt-copying-my-state-going-to-be-slow)
 - Normalize state (Object vs Array?)
   [Redux Essentials, Part 6: Performance and Normalizing Data \| Redux](https://redux.js.org/tutorials/essentials/part-6-performance-normalization)
 
-### Context performance tips
+## Optimizing Context
 
 - Potentially use `React.useMemo` to memoize the context value
 - Separate the contexts (`state` in one context provider, and `dispatch`
