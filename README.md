@@ -343,7 +343,7 @@ Separating the state:
 
 ## Optimizing Redux
 
-- deep cloning state
+- Deep cloning state
   [Performance \| Redux](https://redux.js.org/faq/performance#do-i-have-to-deep-clone-my-state-in-a-reducer-isnt-copying-my-state-going-to-be-slow)
 - Normalize state (Object vs Array?)
   [Redux Essentials, Part 6: Performance and Normalizing Data \| Redux](https://redux.js.org/tutorials/essentials/part-6-performance-normalization)
@@ -356,13 +356,13 @@ Separating the state:
 
 ## Tools for Measuring Performance
 
-- Dev tools Profiler tab
-- Dev tools Performance tab
+- [React Profiler](https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html)
+- [Dev tools Performance tab](https://calibreapp.com/blog/react-performance-profiling-optimization)
 
   - To help observe performance problems, click settings gear and change CPU
     throttle.
 
-- User Timings API
+- [User Timings API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API)
 
   - API that lests you define precise performance marks
   - Marks can be named and are displayed in DEV Tools
@@ -376,29 +376,21 @@ Separating the state:
   ```
 
 - [why-did-you-render](https://github.com/welldone-software/why-did-you-render)
-- Webpack Bundle Analyzer
+- [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)
 - One great way to analyze your app to determine the need/benefit of code
   splitting for a certain feature/page/interaction, is to use the “Coverage”
   feature of the developer tools
   [Find Unused JavaScript And CSS Code With The Coverage Tab In Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/coverage)
 
 - [Profiling React component performance with Chrome devtools](https://calibreapp.com/blog/react-performance-profiling-optimization)
+- [Profiler API](https://reactjs.org/docs/profiler.html)
 
 ## Definitions
 
 - React lifecycle
-
   - The “render” phase: create React elements React.createElement
   - The “reconciliation” phase: compare previous elements with the new ones
   - The “commit” phase: update the DOM (if needed).
-
-- Component re-render for any of the following reasons
-
-  - props change
-  - internal state changes
-  - consuming context values which have changed
-  - parent re-renders
-
 - Pure Component
   - renders the same output for the same state and props
 - Memoization
@@ -418,3 +410,4 @@ Separating the state:
 - [Optimizing Performance – React](https://reactjs.org/docs/optimizing-performance.html)
 - [Profiling React component performance with Chrome devtools - Calibre](https://calibreapp.com/blog/react-performance-profiling-optimization)
 - https://github.com/stevekinney/grudges-react-state
+- [Profiling React.js Performance](https://addyosmani.com/blog/profiling-react-js/)
